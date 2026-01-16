@@ -1,0 +1,7 @@
+#!/Users/aman/Desktop/CIT-8.0-Website-Full-Stack-Project-/CIT/myenv/bin/python3
+import sys
+from charset_normalizer import cli
+if __name__ == '__main__':
+    if sys.argv[0].endswith('.exe'):
+        sys.argv[0] = sys.argv[0][:-4]
+    sys.exit(cli.cli_detect())
