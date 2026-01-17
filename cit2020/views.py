@@ -249,8 +249,8 @@ def forms(request):
         elif slot == '2':
             player.slot = 2
           
-        # elif slot == '3':
-        #     player.slot = 3
+        elif slot == '3':
+            player.slot = 3
 
         player.save()
 
