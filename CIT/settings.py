@@ -101,12 +101,21 @@ DATABASES = {
         'USER': config('DATABASE_USER'),
         'PASSWORD': config('DATABASE_PASSWORD'),
         'HOST': config('DATABASE_HOST'),
+        "CONN_MAX_AGE": 300,
         'PORT': config('DATABASE_PORT', cast=int),
         'OPTIONS': {
             'sslmode': 'require',
         },
     }
 }
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "TIMEOUT": 300,
+    }
+}
+
 
 
 DATABASE_URL = config('DATABASE_URL')

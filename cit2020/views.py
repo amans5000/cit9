@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from .forms import Profileform
+from django.views.decorators.cache import cache_page
 
 slot1_start=datetime.datetime(2026, 1, 17, 19, 30, 00, 701322)
 slot1_end=datetime.datetime(2026, 1, 17, 20, 15, 00, 701322)
@@ -15,10 +16,10 @@ slot1_end=datetime.datetime(2026, 1, 17, 20, 15, 00, 701322)
 slot2_start=datetime.datetime(2026, 1, 18, 10, 00, 00, 701322)
 slot2_end=datetime.datetime(2026, 1, 18, 10, 45, 00, 701322)
 
-# slot3_start=datetime.datetime(2025, 1, 26, 21, 00, 00, 701322)
-# slot3_end=datetime.datetime(2025, 1, 26, 21, 45, 00, 701322)
+slot3_start=datetime.datetime(2026, 1, 18, 19, 30, 00, 701322)
+slot3_end=datetime.datetime(2026, 1, 18, 20, 15, 00, 701322)
 
-round1_result=datetime.datetime(2026, 1, 18,12,00 , 00, 701322)
+round1_result=datetime.datetime(2026, 1, 18,22,00 , 00, 701322)
 
 final_start=datetime.datetime(2026, 1, 19, 00,1, 00, 701322)
 final_end=datetime.datetime(2026, 1, 19,23, 59, 00, 701322)
@@ -41,7 +42,6 @@ def index(request):
         else: 
             return render(request, 'home_page.html')
     return render(request, 'home_page.html')
-
 
 def quiz(request):   
     lastquestion = models.question.objects.all().count()
@@ -170,7 +170,7 @@ def answer(request):
 
     return redirect(reverse_lazy('cit2020:quiz'))
 
-
+@cache_page(60)
 def lboard(request,slot=0):
     is_final=False
     showScore=True
@@ -298,9 +298,11 @@ def qualify(request, cutoff):
         return redirect(reverse_lazy('cit2020:index'))
     else:
         return redirect(reverse_lazy('cit2020:rules'))
-    
+
+@cache_page(60)
 def schedule(request):
     return render(request, 'schedule.html')
 
+@cache_page(60)
 def faq(request):
     return render(request, 'faq.html')

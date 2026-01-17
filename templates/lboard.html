@@ -236,6 +236,11 @@
     >Slot 2</a
   >
   <a
+    href="{% url 'cit2020:lboard' 3 %}"
+    class="slot-button {% if slot == 3 %}active{% endif %}"
+    >Slot 3</a
+  >
+  <a
     href="{% url 'cit2020:lboard' 4 %}"
     class="slot-button {% if slot == 4 %}active{% endif %}"
     >Final Round</a

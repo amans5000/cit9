@@ -245,9 +245,11 @@
   } else if ("{{ player.slot }}" == "1") {
       countDownDate = new Date("Jan 17 , 2026 20:15:00").getTime();
   } else if ("{{ player.slot }}" == "2") {
-      countDownDate = new Date("Jan 18 , 2025 10:45:00").getTime();
+      countDownDate = new Date("Jan 18 , 2026 10:45:00").getTime();
+  } else if ("{{ player.slot }}" == "3") {
+      countDownDate = new Date("Jan 18 , 2026 20:15:00").getTime();
   } else {
-      countDownDate = new Date("Jan 18 , 2025 10:45:00").getTime();
+      countDownDate = new Date("Jan 18 , 2026 20:15:00").getTime();
   }
 
   var x = setInterval(function() {
