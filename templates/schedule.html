@@ -21,7 +21,7 @@
         background: url("{% static 'Assets/bg25latest.png' %}") center/cover no-repeat;
     }
 
-    .slide {
+    .scd-slide {
         width: 100%;
         max-width: 1400px;
         min-height: 100vh;
@@ -31,7 +31,7 @@
     }
 
     /* TITLE */
-    .title {
+    .scd-title {
         margin: 0 auto 50px;
         width: fit-content;
         padding: 18px 70px;
@@ -46,14 +46,14 @@
     }
 
     /* CONTENT */
-    .content {
+    .scd-content {
         display: flex;
         justify-content: space-between;
         gap: 60px;
         color: #111;
     }
 
-    .box {
+    .scd-box {
         width: 48%;
         background: rgba(207, 210, 223, 0.95);
         border-radius: 24px;
@@ -61,25 +61,25 @@
         box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     }
 
-    .box h2 {
+    .scd-box h2 {
         font-size: 28px;
         margin: 0 0 20px;
         font-weight: 800;
         letter-spacing: 1px;
     }
 
-    .box p {
+    .scd-box p {
         font-size: 20px;
         line-height: 1.75;
         margin: 0;
     }
 
-    .box b {
+    .scd-box b {
         font-weight: 700;
     }
 
     /* IMAGE — CENTER OVERLAP */
-    .pic {
+    .scd-pic {
         position: absolute;
         bottom: -12px;
         left: 50%;
@@ -88,7 +88,7 @@
         z-index: 5;
     }
 
-    .pic img {
+    .scd-pic img {
         width: 100%;
         height: auto;
         display: block;
@@ -96,16 +96,16 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-        .content {
+        .scd-content {
             flex-direction: column;
             gap: 40px;
         }
 
-        .box {
+        .scd-box {
             width: 100%;
         }
 
-        .pic {
+        .scd-pic {
             position: static;
             transform: none;
             margin: 40px auto 0;
@@ -116,12 +116,12 @@
 
 <body>
 
-<div class="slide">
+<div class="scd-slide">
 
-    <div class="title">SCHEDULE</div>
+    <div class="scd-title">SCHEDULE</div>
 
-    <div class="content">
-        <div class="box">
+    <div class="scd-content">
+        <div class="scd-box">
             <h2>PRELIMINARY ROUND</h2>
             <p>
                 Candidates can attempt CIT only once in any of the two available slots:
@@ -129,12 +129,12 @@
                 <b>Slot 1:</b> January 17, 2026<br>
                 <span>(7:30 PM – 8:15 PM)</span>
                 <br><br>
-                <b>Slot 2:</b> January 17, 2026<br>
-                <span>(9:00 PM – 9:45 PM)</span>
+                <b>Slot 2:</b> January 18, 2026<br>
+                <span>(10:00 AM – 10:45 AM)</span>
             </p>
         </div>
 
-        <div class="box">
+        <div class="scd-box">
             <h2>FINAL ROUND</h2>
             <p>
                 Shortlisted candidates are required to submit a pitching video along with
@@ -145,7 +145,7 @@
     </div>
 
     <!-- Illustration -->
-    <div class="pic">
+    <div class="scd-pic">
         <img src="{% static 'Assets/pic.jpg' %}" alt="Schedule Illustration">
     </div>
 

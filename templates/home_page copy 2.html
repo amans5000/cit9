@@ -24,6 +24,11 @@
     font-family: "Poppins", sans-serif;
   }
 
+  html {
+  scroll-behavior: smooth;
+}
+
+
   section {
     padding: 90px 0;
   }
@@ -152,7 +157,7 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav gap-lg-4 text-center">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'cit2020:schedule' %}">Schedule</a>
@@ -355,6 +360,7 @@ Together, these rounds ensure that CIT 9.0 goes beyond traditional aptitude test
       });
     });
   });
+
 
   
 </script>

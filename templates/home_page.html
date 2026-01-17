@@ -24,6 +24,11 @@
     font-family: "Poppins", sans-serif;
   }
 
+  html {
+  scroll-behavior: smooth;
+}
+
+
   section {
     padding: 90px 0;
   }
@@ -58,6 +63,15 @@
   .nav-link:hover {
     color: #7de0ff !important;
   }
+
+  .navbar-toggler {
+  border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
 
   /* HERO */
   .hero-title {
@@ -128,9 +142,131 @@
     }
 
   }
+
+/* FAQ */
+
+    /* BACKGROUND */
+    .faq-bg {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .faq-wrapper {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .left-panel {
+      width: min(350px, 90vw);
+      background: #9a9eb5;
+      border-radius: 20px;
+      border: 3px solid #000;
+      box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.55);
+      padding: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .left-panel h1 {
+      font-style: italic;
+      font-size: clamp(26px, 4vw, 34px);
+      letter-spacing: 2px;
+      text-align: center;
+      color: #fff;
+      font-weight: 800;
+      text-shadow: 2px 2px 6px #000;
+    }
+
+    .inner-card {
+      background: #6f7391;
+      padding: 40px;
+      border-radius: 30px;
+      display: flex;
+      gap: 30px;
+      position: relative;
+    }
+
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+    }
+
+    /* FAQ ITEM */
+    .faq-item {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .faq-pill {
+      font-family: "Source Serif 4", serif;
+      background: #d9d9d9;
+      border: 2px solid #000;
+      border-radius: 999px;
+      padding: 16px 28px;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 7px 0 rgba(0, 0, 0, 0.6);
+      transition: all 0.25s ease;
+    }
+
+    .faq-pill:hover {
+      transform: translateY(-3px);
+    }
+
+    .faq-pill.active {
+      background: #cfd2ff;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 10px;
+      padding: 18px 22px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 18px;
+      border: 2px solid #000;
+      color:#000;
+      font-size: 16px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .student-img {
+      position: absolute;
+      bottom: -60px;
+      left: -180px;
+      width: clamp(180px, 25vw, 300px);
+    }
+
+    @media (max-width: 1024px) {
+      .inner-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .student-img {
+        position: static;
+        margin-top: 25px;
+      }
+    }
+
 </style>
 
-<nav class="navbar navbar-expand-lg glass-nav fixed-top">
+<nav class="navbar navbar-expand-lg glass-nav fixed-top" id="home">
   <div class="container-fluid px-lg-5">
     <a class="navbar-brand d-flex align-items-center gap-2 text-white" href="#">
       <img
@@ -141,23 +277,27 @@
       <span class="fw-bold">ISTE - CIT 9.0</span>
     </a>
 
-    <button
-      class="navbar-toggler border-white"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navMenu"
-    >
-      <span class="fas fa-bars text-white"></span>
-    </button>
+<button
+  class="navbar-toggler"
+  type="button"
+  data-bs-toggle="collapse"
+  data-bs-target="#navMenu"
+  aria-controls="navMenu"
+  aria-expanded="false"
+  aria-label="Toggle navigation"
+>
+  <span class="navbar-toggler-icon"></span>
+</button>
+
 
     <div class="collapse navbar-collapse justify-content-end" id="navMenu">
       <ul class="navbar-nav gap-lg-4 text-center">
-        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#hom">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'cit2020:schedule' %}">Schedule</a>
+          <a class="nav-link" href="#schedule">Schedule</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="{% url 'cit2020:faq' %}">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
         <li class="nav-item">
           <a class="nav-link" href="#sponsors">Sponsors</a>
         </li>
@@ -169,7 +309,7 @@
   </div>
 </nav>
 
-<section class="hero-section mt-5">
+<section class="hero-section mt-5" id="hom">
   <div class="container">
     <div class="row align-items-center gy-5">
       <div class="col-lg-6 text-center text-lg-start">
@@ -257,7 +397,7 @@ Together, these rounds ensure that CIT 9.0 goes beyond traditional aptitude test
   </div>
 </section>
 
-<!-- <section id="schedule">
+<section id="schedule">
   <div class="container">
     <div class="pill">SCHEDULE</div>
     <div class="row g-4">
@@ -284,7 +424,7 @@ Together, these rounds ensure that CIT 9.0 goes beyond traditional aptitude test
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- <section id="faq">
   <div class="container">
@@ -297,6 +437,69 @@ Together, these rounds ensure that CIT 9.0 goes beyond traditional aptitude test
     </div>
   </div>
 </section> -->
+
+<section id = "faq">
+<div class="faq-bg">
+  <div class="faq-wrapper">
+
+    <div class="left-panel">
+      <h1>FREQUENTLY<br>ASKED<br>QUESTIONS</h1>
+    </div>
+
+    <div class="inner-card">
+      <img src="{% static 'Assets/student.png' %}" alt="Student" class="student-img">
+
+      <div class="right-panel">
+
+        <div class="faq-item">
+          <div class="faq-pill">What is CIT?</div>
+          <div class="faq-answer">
+   CIT (Cognitive Intelligence  Test) is ISTE’s flagship competition designed to test creativity, logical thinking, and problem-solving skills beyond textbooks.
+
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pill">Where will the test be conducted?</div>
+          <div class="faq-answer">
+            The test will be conducted completely online and can be attempted from anywhere.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pill">How will the test be conducted?</div>
+          <div class="faq-answer">
+            The competition consists of multiple rounds with MCQs and analytical challenges.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pill">How will the competition be structured?</div>
+          <div class="faq-answer">
+            CIT is structured in elimination rounds, with each round testing higher-order skills.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pill">Is there any prize money?</div>
+          <div class="faq-answer">
+            Yes, winners will receive exciting prizes, certificates, and recognition.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-pill">How will it benefit me?</div>
+          <div class="faq-answer">
+            Participants gain national exposure, certificates, skill validation, and learning experience.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
 
 <section id="sponsors">
   <div class="container text-center">
@@ -353,6 +556,38 @@ Together, these rounds ensure that CIT 9.0 goes beyond traditional aptitude test
       document.querySelector(this.getAttribute("href")).scrollIntoView({
         behavior: "smooth",
       });
+    });
+  });
+
+  document.querySelectorAll(".navbar-nav .nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+      const navbarCollapse = document.getElementById("navMenu");
+      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+
+      if (bsCollapse) {
+        bsCollapse.hide();
+      }
+    });
+  });
+
+
+    const pills = document.querySelectorAll(".faq-pill");
+
+  pills.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const answer = pill.nextElementSibling;
+
+      document.querySelectorAll(".faq-answer").forEach(a => {
+        if (a !== answer) a.style.display = "none";
+      });
+
+      document.querySelectorAll(".faq-pill").forEach(p => {
+        if (p !== pill) p.classList.remove("active");
+      });
+
+      const isOpen = answer.style.display === "block";
+      answer.style.display = isOpen ? "none" : "block";
+      pill.classList.toggle("active", !isOpen);
     });
   });
 
