@@ -19,7 +19,7 @@ slot2_end=datetime.datetime(2026, 1, 18, 10, 45, 00, 701322)
 slot3_start=datetime.datetime(2026, 1, 18, 19, 30, 00, 701322)
 slot3_end=datetime.datetime(2026, 1, 18, 20, 15, 00, 701322)
 
-round1_result=datetime.datetime(2026, 1, 18,22,00 , 00, 701322)
+round1_result=datetime.datetime(2026, 1, 18,22,30 , 00, 701322)
 
 final_start=datetime.datetime(2026, 1, 19, 00,1, 00, 701322)
 final_end=datetime.datetime(2026, 1, 19,23, 59, 00, 701322)
