@@ -213,19 +213,19 @@
                 <p class="info-group">
                     <span class="info-label">Qualified for Final:</span><br>
                     <span class="info-value">
-                        {% if player.qualified %} <span class="highlight-text">YES</span>
+                        {% if player.qualified == True %} <span class="highlight-text">YES</span>
                         {% else %} <span class="text-danger">NO</span>
                         {% endif %}
                     </span>
                 </p>
 
-                {% if player.qualified %}
+                <!-- {% if player.qualified %}
                 <h3 class="status-title mt-4">Final Round</h3>
                 <p class="info-group">
                     <span class="info-label">Final Score:</span><br>
                     <span class="info-value highlight-text">{{ player.final_score }}</span>
                 </p>
-                {% endif %}
+                {% endif %} -->
                 
                 {% endif %}
             </div>
